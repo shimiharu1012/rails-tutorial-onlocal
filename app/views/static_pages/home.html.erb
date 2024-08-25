@@ -1,3 +1,7 @@
-<%= provide(:title, "Home")%>
-<h1>Sample Appへようこそ💫</h1>
-<p>これは、<a href="https://railstutorial.jp/">railsチュートリアル</a>を元に作成した練習用アプリケーションです‼️</p>
+<div class="center jumbotoron">
+  <%= provide(:title, "Home")%>
+  <h1>Sample Appへようこそ💫</h1>
+  <p>これは、<a href="https://railstutorial.jp/">railsチュートリアル</a>を元に作成した練習用アプリケーションです‼️</p>
+  <%= link_to "sign up Now!", "signup", class: "btn btn-lg btn-primary" %>
+</div>
+<%= link_to image_tag("kitten.jpg", alt:'画像が表示されない場合のテキストです', width: '200'),"https://www.doubutukikin.or.jp/" %>
