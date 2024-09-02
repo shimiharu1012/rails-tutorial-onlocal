@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       flash[:success] ="アカウント登録が完了しました！！"
       redirect_to user_url(@user)
     else
+      # 保存に失敗した場合
       render 'new', status: :unprocessable_entity
     end
   end
