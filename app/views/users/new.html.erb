@@ -1,2 +1,23 @@
+<%= provide(:title, 'Sign up')%>
 <h1>Sign Up</h1>
-<p>サインアップページを作成予定</p>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_with(model: @user) do |f| %>
+            <%= f.label :name, "名前" %>
+            <%= f.text_field :name %>
+            <%# <label for="user_name">名前</label> %>
+            <%# <input type="text" name="user[name]" id="user_name"> %>
+
+            <%= f.label :email, "メールアドレス" %>
+            <%= f.email_field :email %>
+
+            <%= f.label :passoword, "パスワード" %>
+            <%= f.password_field :passoword %>
+
+            <%= f.label :passoword_confirmation, "パスワードの確認" %>
+            <%= f.password_field :name %>
+
+            <%= f.submit "アカウントを作成", class: "btn btn-primary"%>
+        <% end %>
+    </div>
+</div>
