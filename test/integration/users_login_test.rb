@@ -1,13 +1,21 @@
 require "test_helper"
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
+  
+  def setup
+    @user=users(:michael)
+  end
+
+  # test "正しいアドレスと誤ったパスワードでログインする" do
+  #   get login_path
+  #   assert_template 'session/new'
+  #   post login_path, params: { session: {email:}}
   # end
-  test 'ログイン時の情報が誤りになる' do
+
+  test '正しいアドレスと誤ったパスワードでログインする' do
     get login_path
     assert_template 'sessions/new'
-    post login_path, params: {session: {email: ""}}
+    post login_path, params: {session: {email: @user.email, password: "invalid"}}
     assert_response :unprocessable_entity
     assert_template 'sessions/new'
     assert_not flash.empty? # flashメッセージが空でないことをテスト
