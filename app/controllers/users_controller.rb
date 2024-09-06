@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.save
       # 保存の成功の場合
+      reset_session
+      log_in @user
       flash[:success] ="アカウント登録が完了しました！！"
       redirect_to user_url(@user)
     else
